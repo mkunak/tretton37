@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "appName": "tretton37",
+    "appDescription": "The application is created to make me happy and advanced fullstack developer.",
+    "port": "9000",
+    "dbUri": "../db/payload.json",
+    "jwtKey": "jwt-secret-key"
+  },
+  "sessionSecret": "sessionSecretString"
+}
