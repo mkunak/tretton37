@@ -2,6 +2,7 @@ import { Schema, Document, Model, model } from 'mongoose';
 
 // An interface that describes the properties that are required to create a new Coworker
 export interface ICoworker {
+  id: number;
   name: string;
   city: string;
   country: string;
@@ -21,6 +22,7 @@ export type TCoworkerModel = Model<TCoworkerDocument> & {
 
 // An interface that describes the properties that a Coworker Document has
 export interface ICoworkerDocument extends Document {
+  id: number;
   name: string;
   city: string;
   country: string;
@@ -32,6 +34,10 @@ export interface ICoworkerDocument extends Document {
 export type TCoworkerDocument = ICoworker & Document;
 
 const coworkerSchema = new Schema({
+  id: {
+    type: Number,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -57,15 +63,6 @@ const coworkerSchema = new Schema({
     type: String,
     required: true,
   },
-}, {
-  toJSON: {
-    transform(doc, ret) {
-      return {
-        ...ret,
-        id: ret._id,
-      };
-    }
-  }
 });
 
 coworkerSchema.statics.build = (attrs: ICoworker) => {

@@ -11,6 +11,7 @@ const getCoworkerById = async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
   const coworker = {
+    id,
     name: coworkers[id].name,
     text: coworkers[id].text,
     imagePortraitUrl: coworkers[id].imagePortraitUrl,
